@@ -436,7 +436,12 @@ window.addEventListener('DOMContentLoaded', () => {
         );
       }
 
-      pdf.save('THE_NURSE_PDF.pdf');
+      // Get the custom file name typed by the user
+      const userFileName = document.getElementById('pdfName').value.trim();
+      const finalFileName = userFileName ? `${userFileName}.pdf` : 'THE_NURSE_PDF.pdf';
+
+      // Save the PDF with the user's custom name
+      pdf.save(finalFileName);
 
       generateBtn.innerHTML = 'PDF Downloaded';
 
